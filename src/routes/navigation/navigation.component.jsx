@@ -1,13 +1,15 @@
-import { Fragment } from 'react';
+import { useContext } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
-import  CrwnLogo  from '../../assets/crown.svg?react';
+import { UserContext } from '../../contexts/user-context';
 
+import  CrwnLogo  from '../../assets/crown.svg?react';
 import './navigation.styles.scss';
 
 const Navigation = () => {
+  const { user } = useContext(UserContext)
   return (
-    <Fragment>
+    <>
       <div className='navigation'>
         <Link className='logo-container' to='/'>
           <CrwnLogo className='logo' />
@@ -22,7 +24,7 @@ const Navigation = () => {
         </div>
       </div>
       <Outlet />
-    </Fragment>
+    </>
   );
 };
 
