@@ -5,19 +5,23 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { UserProvider } from './contexts/user-context';
 import { ProductProvider } from './contexts/product-context';
+import { DropDownContext } from './contexts/dropdown-context';
+
 import './index.scss';
 
 const rootElement = document.getElementById('root');
 
 render(
   <React.StrictMode>
-    <UserProvider>
-      <ProductProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ProductProvider>
-    </UserProvider>
+    <BrowserRouter>
+      <UserProvider>
+        <ProductProvider>
+          <DropDownContext>
+            <App />
+          </DropDownContext>
+        </ProductProvider>
+      </UserProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   rootElement
 );
